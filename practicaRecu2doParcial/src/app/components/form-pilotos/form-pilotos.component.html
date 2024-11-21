@@ -1,0 +1,76 @@
+<section>
+    <fieldset>
+        <legend>Formulario</legend>
+        <form action=""[formGroup]='formulario' (ngSubmit) = 'guardarPiloto($event)'>
+
+            <div>
+                <label for="">Nombre</label>
+                <input type="text" formControlName = 'nombre'>
+                @if(formulario.controls['nombre'].getError('required')){
+                    <div>campo requerido</div>
+                }
+            </div>
+
+            <div>
+                <label for="">Escuderia Debut</label>
+                <input type="text" formControlName = 'escuderiaDebut'>
+                @if(formulario.controls['escuderiaDebut'].getError('required')){
+                    <div>campo requerido</div>
+                }
+            </div>
+
+            <div>
+                <label for="">Escuderia Actual</label>
+                <select name="" id="escuderiaActual">
+                <option value="McLaren">McLaren</option>
+                <option value="Ferrari">Ferrari</option>
+                <option value="Red Bull Racing">Red Bull Racing</option>
+                <option value="Mercedes">Mercedes</option>
+                <option value=" Aston Martin"> Aston Martin</option>
+                <option value="Hass">Hass</option>
+                <option value="RB">RB</option>
+                <option value="Williams">Williams</option>
+                <option value="Alpine">Alpine</option>
+                <option value="Kick Sauber">Kick Sauber</option>
+                </select>
+               
+                @if(formulario.controls['escuderiaActual'].getError('required')){
+                    <div>campo requerido</div>
+                }
+            </div>
+
+            <div>
+                <label for="">año Debut</label>
+                <input type="number" formControlName = 'anioDebut'>
+                @if(formulario.controls['anioDebut'].getError('min')){
+                    <div>no puede ser menos de 1950</div>
+                }
+                @if(formulario.controls['anioDebut'].getError('max')){
+                    <div>no puede ser mas de 2024</div>
+                }
+            </div>
+
+
+            <div>
+                <label for="">Cantidad De Grandes Premios</label>
+                <input type="number" formControlName = 'grandesPremios'>
+                @if(formulario.controls['grandesPremios'].getError('required')){
+                    <div>campo requerido</div>
+                }
+            </div>
+            <div>
+                <label for="">cantidad de Podios</label>
+                <input type="number" formControlName = 'cantPodios'>
+                @if(formulario.controls['cantPodios'].getError('required')){
+                    <div>campo requerido</div>
+                }
+            </div>
+
+            <div>
+                <label for="">Esta Activo actualmente?</label>
+                <input type="checkbox" formControlName = 'isActive'>
+            </div>
+            <button type="submit">Agregar!</button>
+        </form>
+    </fieldset>
+</section>
